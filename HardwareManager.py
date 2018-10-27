@@ -1,3 +1,4 @@
+import RPi.GPIO as GPIO
 from Adafruit_LED_Backpack import BicolorBargraph24
 
 
@@ -93,3 +94,49 @@ class productionMeter:
                             self.display1.set_bar(invert, BicolorBargraph24.GREEN)
                 self.display1.write_display()
 
+
+class servoMotor:
+    maxAngle = 180
+    minAngle = 0
+    maxDuty = 11.8
+    minDuty = 2.4
+    maxDelta = 0
+    oldAngle = 300
+    servoPin = 0
+    tolerance = 0.05
+
+    def __init__(self):
+        self.maxDelta = 20
+        ### Define the pin GPIO26 as a PWM output
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(26,GPIO.OUT)
+        self.servoPin = GPIO.PWM(26, 50)
+        self.servoPin.start(float(self.maxDuty+self.minDuty)/float(2))
+
+    def changeMaxDelta(self, newMaxDelta):
+        #test if in acceptable delta angle
+        if(newMaxDelta<((self.maxAngle+self.minAngle)/2)):
+            self.maxDelta = newMaxDelta
+            print(self.maxDelta)
+
+    def changeAngle(self, newAngle):
+        #test if acceptable
+        if(abs(newAngle) <= self.maxDelta):
+            #now do a rule for the command
+            if(newAngle<0):
+                minTolered = float(1+self.tolerance)*self.oldAngle
+                maxTolered = float(1-self.tolerance)*self.oldAngle
+            else:
+                minTolered = float(1-self.tolerance) * self.oldAngle
+                maxTolered = float(1+self.tolerance) * self.oldAngle
+
+            if (newAngle > maxTolered or newAngle < minTolered):
+                self.oldAngle = newAngle
+                self.adaptAngle(newAngle)
+
+
+    def adaptAngle(self, angle):
+        newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
+        newDuty = newDuty*float(self.maxDuty-self.minDuty)
+        newDuty = newDuty+self.minDuty
+        self.servoPin.ChangeDutyCycle(newDuty)
