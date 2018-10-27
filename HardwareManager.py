@@ -1,4 +1,8 @@
+import time
+import threading
+import datetime
 import RPi.GPIO as GPIO
+from Adafruit_LED_Backpack import SevenSegment
 from Adafruit_LED_Backpack import BicolorBargraph24
 
 
@@ -140,3 +144,59 @@ class servoMotor:
         newDuty = newDuty*float(self.maxDuty-self.minDuty)
         newDuty = newDuty+self.minDuty
         self.servoPin.ChangeDutyCycle(newDuty)
+
+
+class sevenSegmentDigit:
+    segment = 0
+    isThread = False
+    thr = 0
+
+    def __init__(self):
+        self.segment = SevenSegment.SevenSegment(address=0x70)
+        self.segment.begin()
+        self.segment.set_brightness(10)
+        self.segment.clear()
+        self.segment.write_display()
+        self.isThread = False
+        #thr = threading.Thread(name='adaptTime', target=self.adaptTime())
+
+    def displayColon(self):
+        self.segment.set_colon(1)
+        self.segment.write_display()
+
+    def displayString(self, toDisplay):
+        self.segment.print_number_str(toDisplay)
+        self.segment.write_display()
+
+    def displayClear(self):
+        self.segment.clear()
+        self.segment.write_display()
+
+    def displayTime(self):
+        if(self.isThread):
+            #self.thr.start()
+            self.isThread = True
+        else:
+            #self.thr.stop()
+            self.isThread = False
+
+    def adaptTime(self):
+
+        now = datetime.datetime.now()
+        hour = now.hour
+        minute = now.minute
+        second = now.second
+
+        self.segment.clear()
+        # Set hours
+        self.segment.set_digit(0, int(hour / 10))     # Tens
+        self.segment.set_digit(1, hour % 10)          # Ones
+        # Set minutes
+        self.segment.set_digit(2, int(minute / 10))   # Tens
+        self.segment.set_digit(3, minute % 10)        # Ones
+        # Toggle colon
+        self.segment.set_colon(second % 2)              # Toggle colon at 1Hz
+
+        # Write the display buffer to the hardware.  This must be called to
+        # update the actual display LEDs.
+        self.segment.write_display()
