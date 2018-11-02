@@ -1,5 +1,8 @@
 from MqttClient import MqttClient
+import time
+from HardwareManager import consumptionMeter
 
 houseClient = MqttClient("HouseClientConf.config")
-houseClient.waitTilConnected()
 
+while(True):
+    time.sleep(0.2)
