@@ -54,7 +54,7 @@ class consumptionMeter:
 
 
 class productionMeter:
-    i2cAddress = 0x72
+    i2cAddress = 0x71
     maxValue = 0
     display1 = 0
     nbLeds = 24
