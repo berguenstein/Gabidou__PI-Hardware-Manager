@@ -6,62 +6,22 @@ from Adafruit_LED_Backpack import SevenSegment
 from Adafruit_LED_Backpack import BicolorBargraph24
 
 
-class consumptionMeter:
+class ledsMeter:
     i2cAddress = 0x72
     maxValue = 0
     display1 = 0
     nbLeds = 24
     oldToDisplay = 0
+    consumption = True
 
-    def __init__(self):
+    def __init__(self, addressI2C, isInConsumption):
         maxValue = 0
-        ## Define the i2c address of the component "segment"
-        self.display1 = BicolorBargraph24.BicolorBargraph24(address=self.i2cAddress)
-        ## end of definition
-        ## Define the begining of the communication and set the brightness
-        self.display1.begin()
-        self.display1.clear()
-        self.display1.set_brightness(7)
-        self.display1.write_display()
-        ## end of definition
+        if(isInConsumption == True):
+            self.consumption = True
+        else:
+            self.consumption = False
 
-    def changeDisplay(self, newValue):
-    #begin of the function
-        if (newValue > self.maxValue):
-            self.maxValue = newValue
-
-        ratio = float(float(newValue) / float(self.maxValue))
-        toDisplay = int(self.nbLeds * ratio)
-
-        if (self.oldToDisplay != toDisplay):
-            self.oldToDisplay = toDisplay
-
-            self.display1.clear()
-            self.display1.write_display()
-
-            for i in range(0, toDisplay + 1):
-                invert = self.nbLeds-i-1
-                if (invert > 18):
-                    self.display1.set_bar(invert, BicolorBargraph24.GREEN)
-                else:
-                    if (invert > 10):
-                        self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
-
-                    else:
-                        if (invert >= 0):
-                            self.display1.set_bar(invert, BicolorBargraph24.RED)
-                self.display1.write_display()
-
-
-class productionMeter:
-    i2cAddress = 0x71
-    maxValue = 0
-    display1 = 0
-    nbLeds = 24
-    oldToDisplay = 0
-
-    def __init__(self):
-        maxValue = 0
+        self.i2cAddress = addressI2C
         ## Define the i2c address of the component "segment"
         self.display1 = BicolorBargraph24.BicolorBargraph24(address=self.i2cAddress)
         ## end of definition
@@ -85,18 +45,33 @@ class productionMeter:
             self.display1.clear()
             self.display1.write_display()
 
-            for i in range(0,toDisplay+1):
-                invert = self.nbLeds-i-1
-                if(invert>18):
-                    self.display1.set_bar(invert,BicolorBargraph24.RED)
-                else:
-                    if (invert > 10):
-                        self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
-
+            if(self.consumption == False):
+                for i in range(0,toDisplay+1):
+                    invert = self.nbLeds-i-1
+                    if(invert>18):
+                        self.display1.set_bar(invert,BicolorBargraph24.RED)
                     else:
-                        if(invert >= 0):
-                            self.display1.set_bar(invert, BicolorBargraph24.GREEN)
-                self.display1.write_display()
+                        if (invert > 10):
+                            self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
+
+                        else:
+                            if(invert >= 0):
+                                self.display1.set_bar(invert, BicolorBargraph24.GREEN)
+                    self.display1.write_display()
+            else:
+                for i in range(0, toDisplay + 1):
+                    invert = self.nbLeds - i - 1
+                    if (invert > 18):
+                        self.display1.set_bar(invert, BicolorBargraph24.GREEN)
+                    else:
+                        if (invert > 10):
+                            self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
+
+                        else:
+                            if (invert >= 0):
+                                self.display1.set_bar(invert, BicolorBargraph24.RED)
+                    self.display1.write_display()
+
 
 
 class servoMotor:
