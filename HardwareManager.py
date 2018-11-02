@@ -75,8 +75,7 @@ class servoMotor:
     maxDuty = 11.8
     minDuty = 2.4
     oldAngle = 300
-    servoPin = 0
-    tolerance = 0.01
+    tolerance = 0.2
 
     def __init__(self):
         self.maxDelta = 20
@@ -101,12 +100,9 @@ class servoMotor:
             newAngle = -20
 
         #now do a rule for the command
-        if(newAngle<0):
-            minTolered = float(1+self.tolerance)*self.oldAngle
-            maxTolered = float(1-self.tolerance)*self.oldAngle
-        else:
-            minTolered = float(1-self.tolerance) * self.oldAngle
-            maxTolered = float(1+self.tolerance) * self.oldAngle
+        maxTolered = self.oldAngle+self.tolerance
+        minTolered = self.oldAngle-self.tolerance
+
         if (newAngle > maxTolered or newAngle < minTolered):
             self.oldAngle = newAngle
             self.adaptAngle(newAngle)
@@ -114,9 +110,11 @@ class servoMotor:
 
     def adaptAngle(self, angle):
         newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
-        newDuty = newDuty*float(self.maxDuty-self.minDuty)
+        newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
         newDuty = newDuty+self.minDuty
         self.servoPin.ChangeDutyCycle(newDuty)
+        time.sleep(1)
+        self.servoPin.ChangeDutyCycle(0)
         print("Angle changed")
 
 
