@@ -36,6 +36,8 @@ class MqttClient:
         self._host = config['cloudio']['host']
         self._port = int(config['cloudio']['port'])
         self._subscribe = config['cloudio']['subscribe_topics']
+        self._exportPower = 0
+        self._importPower = 0
         self.log.info('Starting MQTT client...')
 
         if not self._useReconnectClient:
@@ -146,10 +148,13 @@ class MqttClient:
 
     def onMessage(self, client, userdata, msg):
         #I think i must do something here
-        print(msg.topic)
-        print(str(msg.payload))
-        value = json.loads(msg.payload)['value']
-        print(value)
+        #print(msg.topic)
+        #print(str(msg.payload))
+        if msg.topic.find('obis_1_0_1_7_0_255_2') != -1:    #active power import
+            self._importPower = json.loads(msg.payload)['value']
+        if msg.topic.find('obis_1_0_2_7_0_255_2') != -1:    #active power export
+            self._exportPower = json.loads(msg.payload)['value']
+
 
     def onSubscibe(client, userdata, mid):
         print('hello')
@@ -158,5 +163,11 @@ class MqttClient:
         print("subscribe to : " + self._endPointName)
         (result, mid) = self._client.subscribe(u'@update/' + self._endPointName + '/#', 1)
         return True if result == self.MQTT_ERR_SUCCESS else False
+
+    def getExportPower(self):
+        return self._exportPower
+
+    def getImportPower(self):
+        return self._importPower
 
 
