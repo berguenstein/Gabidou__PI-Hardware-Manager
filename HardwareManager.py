@@ -7,15 +7,12 @@ from Adafruit_LED_Backpack import BicolorBargraph24
 
 
 class ledsMeter:
-    i2cAddress = 0x72
-    maxValue = 0
-    display1 = 0
-    nbLeds = 24
-    oldToDisplay = 0
-    consumption = True
+    def __init__(self, addressI2C, isInConsumption, Value):
+        self.maxValue = Value
+        self.display1 = 0
+        self.nbLeds = 24
+        self.oldToDisplay = 0
 
-    def __init__(self, addressI2C, isInConsumption):
-        maxValue = 0
         if(isInConsumption == True):
             self.consumption = True
         else:
@@ -33,8 +30,6 @@ class ledsMeter:
         ## end of definition
 
     def changeDisplay(self, newValue):
-        if(newValue > self.maxValue):
-            self.maxValue = newValue
 
         ratio = float(float(newValue)/float(self.maxValue))
         toDisplay = int(self.nbLeds*ratio)
@@ -79,17 +74,16 @@ class servoMotor:
     minAngle = 0
     maxDuty = 11.8
     minDuty = 2.4
-    maxDelta = 0
     oldAngle = 300
     servoPin = 0
-    tolerance = 0.05
+    tolerance = 0.01
 
     def __init__(self):
         self.maxDelta = 20
         ### Define the pin GPIO26 as a PWM output
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(26,GPIO.OUT)
-        self.servoPin = GPIO.PWM(26, 50)
+        GPIO.setup(18,GPIO.OUT)
+        self.servoPin = GPIO.PWM(18, 50)
         self.servoPin.start(float(self.maxDuty+self.minDuty)/float(2))
 
     def changeMaxDelta(self, newMaxDelta):
@@ -100,18 +94,22 @@ class servoMotor:
 
     def changeAngle(self, newAngle):
         #test if acceptable
-        if(abs(newAngle) <= self.maxDelta):
-            #now do a rule for the command
-            if(newAngle<0):
-                minTolered = float(1+self.tolerance)*self.oldAngle
-                maxTolered = float(1-self.tolerance)*self.oldAngle
-            else:
-                minTolered = float(1-self.tolerance) * self.oldAngle
-                maxTolered = float(1+self.tolerance) * self.oldAngle
+        if(newAngle>20):
+            newAngle = 20
 
-            if (newAngle > maxTolered or newAngle < minTolered):
-                self.oldAngle = newAngle
-                self.adaptAngle(newAngle)
+        if (newAngle < -20):
+            newAngle = -20
+
+        #now do a rule for the command
+        if(newAngle<0):
+            minTolered = float(1+self.tolerance)*self.oldAngle
+            maxTolered = float(1-self.tolerance)*self.oldAngle
+        else:
+            minTolered = float(1-self.tolerance) * self.oldAngle
+            maxTolered = float(1+self.tolerance) * self.oldAngle
+        if (newAngle > maxTolered or newAngle < minTolered):
+            self.oldAngle = newAngle
+            self.adaptAngle(newAngle)
 
 
     def adaptAngle(self, angle):
@@ -119,6 +117,7 @@ class servoMotor:
         newDuty = newDuty*float(self.maxDuty-self.minDuty)
         newDuty = newDuty+self.minDuty
         self.servoPin.ChangeDutyCycle(newDuty)
+        print("Angle changed")
 
 
 class sevenSegmentDigit:
@@ -129,7 +128,7 @@ class sevenSegmentDigit:
     def __init__(self):
         self.segment = SevenSegment.SevenSegment(address=0x70)
         self.segment.begin()
-        self.segment.set_brightness(10)
+        self.segment.set_brightness(7)
         self.segment.clear()
         self.segment.write_display()
         self.isThread = False
