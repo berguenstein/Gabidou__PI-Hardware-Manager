@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Copy of project-level server 'pi'">
+  <component name="PublishConfigData" autoUpload="Always">
     <serverData>
-      <paths name="Copy of project-level server 'pi'">
+      <paths name="pi@192.168.137.141:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_999" local="$PROJECT_DIR$" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="HousePi">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/project" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

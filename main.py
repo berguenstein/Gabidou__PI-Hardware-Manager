@@ -3,8 +3,8 @@ import time
 from HardwareManager import ledsMeter, servoMotor, sevenSegmentDigit
 
 houseClient = MqttClient("HouseClientConf.config")
-consumption = ledsMeter(addressI2C=0x72, isInConsumption=True, Value=3000)
-production = ledsMeter(addressI2C=0x71, isInConsumption=False, Value=3000)
+consumption = ledsMeter(addressI2C=0x72, isInConsumption=True, valuePeak=3000)
+production = ledsMeter(addressI2C=0x71, isInConsumption=False, valuePeak=3000)
 display = sevenSegmentDigit()
 servoMotor = servoMotor()
 servoMotor.changeAngle(0)

@@ -5,10 +5,33 @@ import RPi.GPIO as GPIO
 from Adafruit_LED_Backpack import SevenSegment
 from Adafruit_LED_Backpack import BicolorBargraph24
 
-
+##=====================================================================
+# class ledsMeter
+#----------------------------------------------------------------------
+# This class is  used for the vumeter module:
+# as there are 2 modules, this code has multiple parameters:
+# @param addressI2C: define the i2c address of the module
+# @param valuePeak: define the maximal value for the consumption/production
+# @param isInConsumption: define if the module is a consumption one.
+# if it is, the color will be display as this: green for a small consumption,
+# orange for an average consumption and red for a high consumption. The
+# determination of the consumption value is define with a certain reference,
+# that's set at the beginning with the valuePeak. It's up to you to define
+# what is the maximal value, you just have to know that the number of led
+# turned on will be a linear adaptation of the given value and the maximal
+# one.
+#----------------------------------------------------------------------
+# It contains 2 methods:
+# __init__(self, addressI2C, isInConsumption, valuePeak):
+# It's quite logical
+# and
+# changeDisplay(self, newValue):
+# it will adapt the number of led turned on by a comparison of the
+# inner maximal value and the given newValue.
+##=====================================================================
 class ledsMeter:
-    def __init__(self, addressI2C, isInConsumption, Value):
-        self.maxValue = Value
+    def __init__(self, addressI2C, isInConsumption, valuePeak):
+        self.maxValue = valuePeak
         self.display1 = 0
         self.nbLeds = 24
         self.oldToDisplay = 0
@@ -27,7 +50,7 @@ class ledsMeter:
         self.display1.clear()
         self.display1.set_brightness(7)
         self.display1.write_display()
-        ## end of definition
+
 
     def changeDisplay(self, newValue):
 
@@ -68,14 +91,43 @@ class ledsMeter:
                     self.display1.write_display()
 
 
-
+##=====================================================================
+# class servoMotor
+#----------------------------------------------------------------------
+# This class is  used for the servomotor:
+# It will change the angle of the oscillated platform.
+#----------------------------------------------------------------------
+# It contains 4 methods:
+# __init__(self):
+# define the pin as a PWM output with the good frequency and duty-cycle of 0.5
+# and
+# changeMaxDelta(self, newMaxDelta):
+# It will adapt the maxDelta if it is in the range of the capability of the
+# servomotor. WARNING! this is a delta between the 0 degrees and the maximal Value!
+# Be aware that it isn't a delta between the minimal and maximal angle wanted!
+# and
+# changeAngle(self, newAngle):
+# It will test if the new angle wanted is in the tolerance of the delta angle.
+# If not, it will adapt to the biggest/lowest angle possible.
+# Then, the angle will change only if the new angle has a biggest difference
+# with the old one than the given tolerance, set at 0.2 degrees.
+# If it is smaller than it, it will be the end of the method, elsewhere it
+# it would call the adaptAngle method, described below:
+# and
+# adaptAngle(self, angle):
+# It will change the duty-cycle of the PWM with a calculation for the
+# servomotor used. when the duty-cycle has been sent and the angle has
+# been changed, the duty-cycle is set to 0, to avoid the correction of
+# the servomotor, as it is very sensitive for the duty-cycle and the raspberry
+# isn't really reliable.
+##=====================================================================
 class servoMotor:
-    maxAngle = 180
-    minAngle = 0
-    maxDuty = 11.8
-    minDuty = 2.4
-    oldAngle = 300
-    tolerance = 0.2
+    maxAngle = 180 # of the servomotor
+    minAngle = 0 # of the servomotor
+    maxDuty = 11.8 # of the servomotor
+    minDuty = 2.4 # of the servomotor
+    oldAngle = 300 # to do a comparison of the old and new value
+    tolerance = 0.2 # angle tolerance
 
     def __init__(self):
         self.maxDelta = 20
@@ -93,10 +145,10 @@ class servoMotor:
 
     def changeAngle(self, newAngle):
         #test if acceptable
-        if(newAngle>20):
+        if(newAngle>self.maxDelta):
             newAngle = 20
 
-        if (newAngle < -20):
+        if (newAngle < (-(self.maxDelta))):
             newAngle = -20
 
         #now do a rule for the command
@@ -106,7 +158,6 @@ class servoMotor:
         if (newAngle > maxTolered or newAngle < minTolered):
             self.oldAngle = newAngle
             self.adaptAngle(newAngle)
-
 
     def adaptAngle(self, angle):
         newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
@@ -118,6 +169,34 @@ class servoMotor:
         print("Angle changed")
 
 
+##=====================================================================
+# class sevenSegmentDigit
+#----------------------------------------------------------------------
+# This class is  used for the seven segment 4 digits module:
+# it can do multiple things, described below.
+#----------------------------------------------------------------------
+# It contains 6 methods:
+# __init__(self):
+# Define the basic parameters of the display, such as the i2c address or
+# the brightness of itself.
+# and
+# displayColon(self):
+# set the colon without removing what's displayed.
+# and
+# displayString(self, toDisplay):
+# It will display the given STRING. Doing this will clear the display and
+# then show the string.
+# and
+# displayClear(self):
+# As it's written, it clears the display.
+# and
+# startThreadTime(self):
+# DO NOT USE THIS, still in development, it should start a thread the will
+# display the time, but it doesn't work actually.
+# and
+# displayTime(self):
+# It displays the real time.
+##=====================================================================
 class sevenSegmentDigit:
     segment = 0
     isThread = False
@@ -137,6 +216,7 @@ class sevenSegmentDigit:
         self.segment.write_display()
 
     def displayString(self, toDisplay):
+        self.segment.clear()
         self.segment.print_number_str(toDisplay)
         self.segment.write_display()
 
@@ -144,7 +224,7 @@ class sevenSegmentDigit:
         self.segment.clear()
         self.segment.write_display()
 
-    def displayTime(self):
+    def startThreadTime(self):
         if(self.isThread):
             #self.thr.start()
             self.isThread = True
@@ -152,7 +232,7 @@ class sevenSegmentDigit:
             #self.thr.stop()
             self.isThread = False
 
-    def adaptTime(self):
+    def displayTime(self):
 
         now = datetime.datetime.now()
         hour = now.hour
