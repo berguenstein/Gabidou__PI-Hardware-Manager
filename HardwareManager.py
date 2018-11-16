@@ -30,6 +30,7 @@ from Adafruit_LED_Backpack import BicolorBargraph24
 # inner maximal value and the given newValue.
 ##=====================================================================
 class ledsMeter:
+
     def __init__(self, addressI2C, isInConsumption, valuePeak):
         self.maxValue = valuePeak
         self.display1 = 0
@@ -51,8 +52,10 @@ class ledsMeter:
         self.display1.set_brightness(7)
         self.display1.write_display()
 
-
     def changeDisplay(self, newValue):
+
+        if(newValue > self.maxValue):
+            newValue = self.maxValue
 
         ratio = float(float(newValue)/float(self.maxValue))
         toDisplay = int(self.nbLeds*ratio)
