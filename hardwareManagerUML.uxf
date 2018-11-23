@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>855</y>
+      <w>360</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>valign=center
+ledsMeter
+
+-
+maxValue
+nbLeds
+oldToDisplay
+consumption : boolean
+i2caddress
+-
+__init__(addressI2C, isInConsumption, valuePeak)
+changeDisplay(newValue)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>666</x>
+      <y>630</y>
+      <w>225</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>valign=center
+BicolorBargraph24
+
+-
+__init__()
+set_bar(bar, value)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>909</x>
+      <y>288</y>
+      <w>225</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>valign=center
+HT16K33
+
+-
+__init__(address)
+begin()
+clear()
+set_brightness(brightness)
+write_display()
+set_blink(frequency)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1422</x>
+      <y>918</y>
+      <w>360</w>
+      <h>243</h>
+    </coordinates>
+    <panel_attributes>valign=center
+sevenSegmentDigit
+
+-
+isThread
+thr
+-
+__init__(addressI2C, isInConsumption, valuePeak)
+displayColon()
+displayString(toDisplay)
+displayClear()
+startThreadTime()
+displayTime()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1314</x>
+      <y>666</y>
+      <w>225</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>valign=center
+SevenSegment
+
+-
+__init__()
+set_colon()
+print_number_str(value)
+set_digit(pos, digit)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1017</x>
+      <y>702</y>
+      <w>225</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>valign=center
+DIGIT_VALUES</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1233</x>
+      <y>720</y>
+      <w>99</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+digit</panel_attributes>
+    <additional_attributes>90.0;30.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1062</x>
+      <y>468</y>
+      <w>360</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;380.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>765</x>
+      <y>468</y>
+      <w>225</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>756</x>
+      <y>729</y>
+      <w>90</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-&gt;&gt;&gt;&gt;
+display1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1503</x>
+      <y>342</y>
+      <w>252</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>valign=center
+time</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1629</x>
+      <y>468</y>
+      <w>27</w>
+      <h>468</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;500.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>99</x>
+      <y>828</y>
+      <w>288</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>valign=center
+servoMotor
+
+-
+maxDelta
+maxAngle
+minAngle
+maxDuty
+minDuty
+oldAngle
+tolerance
+-
+__init__()
+changeMaxDelta(newMaxDelta)
+changeAngle(newAngle)
+adaptAngle(angle)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>126</x>
+      <y>351</y>
+      <w>225</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>valign=center
+RPi.GPIO</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>432</y>
+      <w>72</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+GPIO</panel_attributes>
+    <additional_attributes>10.0;440.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1422</x>
+      <y>819</y>
+      <w>117</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+segment</panel_attributes>
+    <additional_attributes>110.0;110.0;110.0;60.0;10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

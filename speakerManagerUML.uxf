@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>17</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>833</x>
+      <y>1258</y>
+      <w>357</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>valign=center
+textSpeaker
+
+-
+__init__()
+say(phrase :string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>731</x>
+      <y>833</y>
+      <w>561</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>valign=center
+espeak
+
+-
+set_voice(voice:string)
+set_parameter(Parameter,value)
+synth(phrase:string)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>986</x>
+      <y>1037</y>
+      <w>153</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;
+espeak</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>272</y>
+      <w>272</w>
+      <h>374</h>
+    </coordinates>
+    <panel_attributes>valign=center
+Parameter
+
+-
+Rate
+Volume
+Pitch
+Range
+Punctuation
+Capitals
+Wordgap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1258</x>
+      <y>391</y>
+      <w>272</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>valign=center
+Gender
+
+-
+Unknown
+Male
+Female</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>833</x>
+      <y>102</y>
+      <w>374</w>
+      <h>544</h>
+    </coordinates>
+    <panel_attributes>valign=center
+Voices
+
+-
+english-us
+french
+-
+&lt;&lt;specifications&gt;&gt;
+it's possible to add an 
+offset to the voice, 
+that define the type of 
+the voice. For example, 
+enter french+f5 to have 
+a female voice with a
+different tone than a
+french+f1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>986</x>
+      <y>629</y>
+      <w>51</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>629</x>
+      <y>629</y>
+      <w>221</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>110.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1190</x>
+      <y>612</y>
+      <w>238</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;130.0;120.0;10.0</additional_attributes>
+  </element>
+</diagram>

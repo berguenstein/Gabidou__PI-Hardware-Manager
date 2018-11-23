@@ -22,9 +22,10 @@ from Adafruit_LED_Backpack import BicolorBargraph24
 # one.
 #----------------------------------------------------------------------
 # It contains 2 methods:
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # __init__(self, addressI2C, isInConsumption, valuePeak):
 # It's quite logical
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # changeDisplay(self, newValue):
 # it will adapt the number of led turned on by a comparison of the
 # inner maximal value and the given newValue.
@@ -101,14 +102,15 @@ class ledsMeter:
 # It will change the angle of the oscillated platform.
 #----------------------------------------------------------------------
 # It contains 4 methods:
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # __init__(self):
 # define the pin as a PWM output with the good frequency and duty-cycle of 0.5
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # changeMaxDelta(self, newMaxDelta):
 # It will adapt the maxDelta if it is in the range of the capability of the
 # servomotor. WARNING! this is a delta between the 0 degrees and the maximal Value!
 # Be aware that it isn't a delta between the minimal and maximal angle wanted!
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # changeAngle(self, newAngle):
 # It will test if the new angle wanted is in the tolerance of the delta angle.
 # If not, it will adapt to the biggest/lowest angle possible.
@@ -116,7 +118,7 @@ class ledsMeter:
 # with the old one than the given tolerance, set at 0.2 degrees.
 # If it is smaller than it, it will be the end of the method, elsewhere it
 # it would call the adaptAngle method, described below:
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # adaptAngle(self, angle):
 # It will change the duty-cycle of the PWM with a calculation for the
 # servomotor used. when the duty-cycle has been sent and the angle has
@@ -179,24 +181,25 @@ class servoMotor:
 # it can do multiple things, described below.
 #----------------------------------------------------------------------
 # It contains 6 methods:
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # __init__(self):
 # Define the basic parameters of the display, such as the i2c address or
 # the brightness of itself.
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # displayColon(self):
 # set the colon without removing what's displayed.
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # displayString(self, toDisplay):
 # It will display the given STRING. Doing this will clear the display and
 # then show the string.
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # displayClear(self):
 # As it's written, it clears the display.
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # startThreadTime(self):
 # DO NOT USE THIS, still in development, it should start a thread the will
 # display the time, but it doesn't work actually.
-# and
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # displayTime(self):
 # It displays the real time.
 ##=====================================================================
