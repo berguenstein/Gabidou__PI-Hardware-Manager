@@ -1,10 +1,12 @@
 from espeak import espeak
 
-from espeakng import ESpeakNG
+class textSpeaker:
 
-#esng = ESpeakNG()
-#esng.say('Hello World!')
+    def __init__(self):
+        espeak.set_voice("french+f5")
+        espeak.set_parameter(espeak.Parameter.Wordgap, 1)
+        espeak.set_parameter(espeak.Parameter.Rate, 50)
+        espeak.set_parameter(espeak.Parameter.Pitch, 50)
 
-while True:
-    phrase = raw_input("What do you want to say?")
-    espeak.synth(phrase)
+    def say(self, phrase):
+        espeak.synth(phrase)
