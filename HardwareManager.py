@@ -71,7 +71,7 @@ class ledsMeter:
                 for i in range(0,toDisplay+1):
                     invert = self.nbLeds-i-1
                     if(invert>18):
-                        self.display1.set_bar(invert,BicolorBargraph24.RED)
+                        self.display1.set_bar(invert,BicolorBargraph24.YELLOW)
                     else:
                         if (invert > 10):
                             self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
@@ -91,14 +91,14 @@ class ledsMeter:
 
                         else:
                             if (invert >= 0):
-                                self.display1.set_bar(invert, BicolorBargraph24.RED)
+                                self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
                     self.display1.write_display()
 
 
 ##=====================================================================
 # class servoMotor
 #----------------------------------------------------------------------
-# This class is  used for the servomotor:
+# This class is  used for the servomotor (Tower Pro MG90S):
 # It will change the angle of the oscillated platform.
 #----------------------------------------------------------------------
 # It contains 4 methods:
@@ -110,6 +110,23 @@ class ledsMeter:
 # It will adapt the maxDelta if it is in the range of the capability of the
 # servomotor. WARNING! this is a delta between the 0 degrees and the maximal Value!
 # Be aware that it isn't a delta between the minimal and maximal angle wanted!
+
+#                   *      *
+#               *               *
+#            *                      *
+#          *                          *                //=0     ----*
+#        *                              *   //=======//                 *
+#       *                        //=======//                               *  IT'S THE MAX DELTA
+#      *                    /==//         *                                  *
+#      *                 O====================================0       -------*
+#      *                                  *
+#       *                                *
+#        *                              *
+#          *                          *
+#            *                      *
+#               *               *
+#                    *     *
+#
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # changeAngle(self, newAngle):
 # It will test if the new angle wanted is in the tolerance of the delta angle.
@@ -127,36 +144,36 @@ class ledsMeter:
 # isn't really reliable.
 ##=====================================================================
 class servoMotor:
-    maxAngle = 180 # of the servomotor
-    minAngle = 0 # of the servomotor
-    maxDuty = 11.8 # of the servomotor
-    minDuty = 2.4 # of the servomotor
-    oldAngle = 300 # to do a comparison of the old and new value
-    tolerance = 0.2 # angle tolerance
+    maxAngle = 180  # of the servomotor
+    minAngle = 0  # of the servomotor
+    maxDuty = 11.8  # of the servomotor
+    minDuty = 2.4  # of the servomotor
+    oldAngle = 300  # to do a comparison of the old and new value
+    tolerance = 0.2  # angle tolerance
 
     def __init__(self):
         self.maxDelta = 20
-        ### Define the pin GPIO26 as a PWM output
+        # Define the pin GPIO26 as a PWM output
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(18,GPIO.OUT)
+        GPIO.setup(18, GPIO.OUT)
         self.servoPin = GPIO.PWM(18, 50)
         self.servoPin.start(float(self.maxDuty+self.minDuty)/float(2))
 
     def changeMaxDelta(self, newMaxDelta):
-        #test if in acceptable delta angle
+        # test if in acceptable delta angle
         if(newMaxDelta<((self.maxAngle+self.minAngle)/2)):
             self.maxDelta = newMaxDelta
             print(self.maxDelta)
 
     def changeAngle(self, newAngle):
-        #test if acceptable
+        # test if acceptable
         if(newAngle>self.maxDelta):
             newAngle = 20
 
         if (newAngle < (-(self.maxDelta))):
             newAngle = -20
 
-        #now do a rule for the command
+        # now do a rule for the command
         maxTolered = self.oldAngle+self.tolerance
         minTolered = self.oldAngle-self.tolerance
 
@@ -168,8 +185,11 @@ class servoMotor:
         newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
         newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
         newDuty = newDuty+self.minDuty
+        # say to the servo to change this angle
         self.servoPin.ChangeDutyCycle(newDuty)
+        # let the time to itself to change it
         time.sleep(1)
+        # say to the servo to stop all moves
         self.servoPin.ChangeDutyCycle(0)
         print("Angle changed")
 
