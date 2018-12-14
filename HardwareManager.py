@@ -4,6 +4,7 @@ import datetime
 import RPi.GPIO as GPIO
 from Adafruit_LED_Backpack import SevenSegment
 from Adafruit_LED_Backpack import BicolorBargraph24
+import math
 
 ##=====================================================================
 # class ledsMeter
@@ -21,7 +22,7 @@ from Adafruit_LED_Backpack import BicolorBargraph24
 # turned on will be a linear adaptation of the given value and the maximal
 # one.
 #----------------------------------------------------------------------
-# It contains 2 methods:
+# It contains 4 methods:
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # __init__(self, addressI2C, isInConsumption, valuePeak):
 # It's quite logical
@@ -29,6 +30,14 @@ from Adafruit_LED_Backpack import BicolorBargraph24
 # changeDisplay(self, newValue):
 # it will adapt the number of led turned on by a comparison of the
 # inner maximal value and the given newValue.
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  turnNbLed(self, toDisplay):
+#  it will adapt the number of led turned on to the number of "toDisplay"
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#  calcNbLedOn(self, value):
+#  it will adapt the number of led to turn on by a mathematical comparison
+#  of the given value and an array of values that came from a premade
+#  calculation of logarithmus of the consumption and production entities
 ##=====================================================================
 class ledsMeter:
 
@@ -37,6 +46,12 @@ class ledsMeter:
         self.display1 = 0
         self.nbLeds = 24
         self.oldToDisplay = 0
+        self.maxDB = math.log10(valuePeak)
+        self.stepDB = self.maxDB/30
+        self.arrayPower = []
+
+        for i in range(0, 25):
+            self.arrayPower.append((int)((math.pow(10, self.maxDB - i * self.stepDB))) + 1)
 
         if(isInConsumption == True):
             self.consumption = True
@@ -93,6 +108,57 @@ class ledsMeter:
                             if (invert >= 0):
                                 self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
                     self.display1.write_display()
+
+    def turnNbLed(self, toDisplay):
+
+        if(toDisplay > self.nbLeds):
+            toDisplay = self.nbLeds
+
+
+        if(self.oldToDisplay != toDisplay):
+            self.oldToDisplay = toDisplay
+
+            self.display1.clear()
+            self.display1.write_display()
+
+            if(self.consumption == False):
+                for i in range(0,toDisplay+1):
+                    invert = self.nbLeds-i-1
+                    if(invert>18):
+                        self.display1.set_bar(invert,BicolorBargraph24.YELLOW)
+                    else:
+                        if (invert > 10):
+                            self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
+
+                        else:
+                            if(invert >= 0):
+                                self.display1.set_bar(invert, BicolorBargraph24.GREEN)
+                    self.display1.write_display()
+            else:
+                for i in range(0, toDisplay + 1):
+                    invert = self.nbLeds - i - 1
+                    if (invert > 18):
+                        self.display1.set_bar(invert, BicolorBargraph24.GREEN)
+                    else:
+                        if (invert > 10):
+                            self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
+
+                        else:
+                            if (invert >= 0):
+                                self.display1.set_bar(invert, BicolorBargraph24.YELLOW)
+                    self.display1.write_display()
+
+    def calcNbLedOn(self, value):
+
+        for i in self.arrayPower:
+            if(value > i):
+                self.turnNbLed(self.nbLeds - self.arrayPower.index(i) - 1)
+                break
+            if(self.arrayPower.index(i) == 25):
+                self.turnNbLed(self.nbLeds)
+                break
+
+
 
 
 ##=====================================================================
@@ -183,12 +249,14 @@ class servoMotor:
 
     def adaptAngle(self, angle):
         newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
-        newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
-        newDuty = newDuty+self.minDuty
-        # say to the servo to change this angle
-        self.servoPin.ChangeDutyCycle(newDuty)
-        # let the time to itself to change it
-        time.sleep(1)
+
+        for i in range(0,2):
+            newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
+            newDuty = newDuty+self.minDuty
+            # say to the servo to change this angle
+            self.servoPin.ChangeDutyCycle(newDuty)
+            # let the time to itself to change it
+            time.sleep(0.15)
         # say to the servo to stop all moves
         self.servoPin.ChangeDutyCycle(0)
         print("Angle changed")
