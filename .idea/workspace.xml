@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7885d5c4-cea9-4ff6-a55d-0a7b8406f138" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/EnergyLogic.py" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/Gabidou__PI-Hardware-Manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gabidou__PI-Hardware-Manager.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -15,11 +18,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+<<<<<<< Updated upstream
     <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1542351862918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$test.coverage" NAME="test Coverage Results" MODIFIED="1541764597394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$SpeakerManager.coverage" NAME="SpeakerManager Coverage Results" MODIFIED="1542369928823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+=======
+    <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$SpeakerManager.coverage" NAME="SpeakerManager Coverage Results" MODIFIED="1542968105683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$test.coverage" NAME="test Coverage Results" MODIFIED="1541764597394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$main2.coverage" NAME="main2 Coverage Results" MODIFIED="1542351862918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$main.coverage" NAME="main Coverage Results" MODIFIED="1544782812563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$ttsTest.coverage" NAME="ttsTest Coverage Results" MODIFIED="1542970430412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+>>>>>>> Stashed changes
     <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$HardwareManager.coverage" NAME="HardwareManager Coverage Results" MODIFIED="1542352656128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Gabidou__PI_Hardware_Manager$main.coverage" NAME="main Coverage Results" MODIFIED="1542369297584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="735381950">
@@ -58,34 +83,43 @@
     <session id="811306681">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.closed" value="17" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.11" value="5" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="53" />
+          <entry key="config" value="1" />
+          <entry key="py" value="101" />
+          <entry key="txt" value="1" />
+          <entry key="uxf" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="53" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="101" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4774" />
+          <entry key="py" value="10790" />
+          <entry key="txt" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4774" />
+          <entry key="PLAIN_TEXT" value="52" />
+          <entry key="Python" value="10790" />
         </counts>
       </usages-collector>
     </session>
@@ -93,6 +127,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -111,12 +146,26 @@
               <caret line="23" column="35" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="35" />
               <folding>
                 <element signature="e#25#36#0" expanded="true" />
+=======
+        <entry file="file://$PROJECT_DIR$/HardwareManager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="268" column="20" selection-start-line="268" selection-start-column="20" selection-end-line="268" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#169#240#0" />
+                <element signature="e#2169#6527#0" />
+                <element signature="e#3987#4058#0" />
+                <element signature="e#8413#8484#0" />
+                <element signature="e#9908#11549#0" />
+>>>>>>> Stashed changes
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< Updated upstream
         <entry file="file://$PROJECT_DIR$/EnergyLogic.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -157,9 +206,15 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
+=======
+        <entry file="file://$PROJECT_DIR$/main.py">
+>>>>>>> Stashed changes
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="61" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+            <state relative-caret-position="-232">
+              <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -178,6 +233,10 @@
       <find>AudioData</find>
       <find>wav_data</find>
       <find>get_flac_converter</find>
+      <find>french</find>
+      <find>BicolorBargraph24</find>
+      <find>display1</find>
+      <find>segment</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -186,15 +245,25 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MqttClient.py" />
         <option value="$PROJECT_DIR$/testSpeakerManager.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/speech_recognition/__init__.py" />
         <option value="$PROJECT_DIR$/main2.py" />
+<<<<<<< Updated upstream
         <option value="$PROJECT_DIR$/HardwareManager.py" />
         <option value="$PROJECT_DIR$/SpeakerManager.py" />
         <option value="$PROJECT_DIR$/EnergyLogic.py" />
         <option value="$PROJECT_DIR$/main.py" />
+=======
+        <option value="$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/-1227933812/espeakng/__init__.py" />
+        <option value="$PROJECT_DIR$/ttsTest.py" />
+        <option value="$PROJECT_DIR$/SpeakerManager.py" />
+        <option value="$PROJECT_DIR$/visibleEnergyHard.py" />
+        <option value="$PROJECT_DIR$/Animation.py" />
+        <option value="$PROJECT_DIR$/MqttClient.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/HardwareManager.py" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -204,11 +273,19 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="687" />
     <option name="y" value="-25" />
     <option name="width" value="979" />
     <option name="height" value="1039" />
+=======
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="2762" />
+    <option name="height" value="1770" />
+>>>>>>> Stashed changes
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -231,10 +308,15 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../autre/untitled" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -248,7 +330,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SpeakerManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Animation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Gabidou__PI-Hardware-Manager" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Animation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="HardwareManager" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gabidou__PI-Hardware-Manager" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -315,7 +419,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="ttsTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Gabidou__PI-Hardware-Manager" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -328,7 +432,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ttsTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -340,16 +444,18 @@
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python.SpeakerManager" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.main2" />
       <item itemvalue="Python.HardwareManager" />
+      <item itemvalue="Python.ttsTest" />
+      <item itemvalue="Python.Animation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Animation" />
+        <item itemvalue="Python.ttsTest" />
         <item itemvalue="Python.SpeakerManager" />
         <item itemvalue="Python.HardwareManager" />
         <item itemvalue="Python.main2" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -371,7 +477,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541152410444</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fonctionne avec affichage logarithmique et maison 53">
+      <created>1544781817229</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1544781817229</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -388,25 +501,34 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
+<<<<<<< Updated upstream
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.11543624" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32891247" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50037795" side_tool="true" visible="true" weight="0.32765958" />
+=======
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49893844" visible="true" weight="0.19349962" />
+      <window_info id="Structure" order="2" sideWeight="0.50106156" side_tool="true" weight="0.12471655" />
+      <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32891247" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50037795" side_tool="true" weight="0.37533155" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.35676393" />
-      <window_info anchor="bottom" id="File Transfer" order="4" sideWeight="0.49962208" visible="true" weight="0.32891247" />
+      <window_info anchor="bottom" id="File Transfer" order="4" sideWeight="0.46787605" weight="0.25464192" />
       <window_info anchor="bottom" id="Python Console" order="5" weight="0.32891247" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.50037795" weight="0.37533155" />
-      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.6477702" weight="0.4867374" />
+      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49962208" visible="true" weight="0.36472148" />
+      <window_info anchor="bottom" id="Debug" order="10" sideWeight="0.6477702" weight="0.52122015" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32891247" />
       <window_info anchor="right" id="SciView" order="0" />
-      <window_info anchor="right" id="Database" order="1" />
-      <window_info anchor="right" id="Remote Host" order="2" />
+      <window_info anchor="right" id="Database" order="1" weight="0.32955405" />
+      <window_info anchor="right" id="Remote Host" order="2" weight="0.32955405" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="3" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
@@ -457,15 +579,16 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="add pi" />
-    <option name="LAST_COMMIT_MESSAGE" value="add pi" />
+    <MESSAGE value="fonctionne avec affichage logarithmique et maison 53" />
+    <option name="LAST_COMMIT_MESSAGE" value="fonctionne avec affichage logarithmique et maison 53" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py</url>
-          <line>1655</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/-1227933812/espeakng/__init__.py</url>
+          <line>93</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -476,6 +599,11 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="espeak._repr" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
@@ -489,6 +617,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-2045812044/201544331/encodings/utf_8.py" />
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-2045812044/1462701372/paho/mqtt/client.py" />
+<<<<<<< Updated upstream
     <entry file="file://$PROJECT_DIR$/HouseClientConf.config">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -536,18 +665,115 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-145">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+=======
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/Adafruit_PureIO/smbus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="293" selection-start-line="293" selection-end-line="293" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testSpeakerManager.py" />
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/speech_recognition/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="1182" column="45" selection-start-line="1182" selection-start-column="45" selection-end-line="1182" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/336788984/-1227933812/Adafruit_PureIO/smbus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4727">
+          <caret line="293" selection-start-line="293" selection-end-line="293" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/201544331/subprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="1012" selection-start-line="1012" selection-end-line="1012" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/201544331/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="1636" selection-start-line="1636" selection-end-line="1636" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/-1227933812/espeakng/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1225">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/726652110/espeak/core.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="46" column="29" selection-start-line="45" selection-start-column="32" selection-end-line="46" selection-end-column="29" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ttsTest.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state>
           <caret selection-end-line="5" selection-end-column="39" />
+=======
+        <state relative-caret-position="207">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MqttClient.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="61" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/201544331/__future__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/Adafruit_LED_Backpack/HT16K33.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="97" selection-start-line="97" selection-end-line="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/Adafruit_LED_Backpack/BicolorBargraph24.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/1462701372/Adafruit_LED_Backpack/SevenSegment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="124" column="50" lean-forward="true" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/726652110/-125940560/espeak/espeak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HouseClientConf.config">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="391">
           <caret line="23" column="35" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="35" />
           <folding>
@@ -562,12 +788,47 @@
           <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
           <folding>
             <marker date="1544783425031" expanded="true" signature="59:61" ph="..." />
+=======
+        <state relative-caret-position="255">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/House.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="75" selection-start-line="17" selection-start-column="75" selection-end-line="17" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visibleEnergyHard.py" />
+    <entry file="file://$PROJECT_DIR$/Animation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/speakerManagerUML.uxf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpeakerManager.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ttsTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="323">
           <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
           <folding>
@@ -576,5 +837,44 @@
         </state>
       </provider>
     </entry>
+=======
+        <state relative-caret-position="85">
+          <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MqttClient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2600">
+          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HardwareManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="268" column="20" selection-start-line="268" selection-start-column="20" selection-end-line="268" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#169#240#0" />
+            <element signature="e#2169#6527#0" />
+            <element signature="e#3987#4058#0" />
+            <element signature="e#8413#8484#0" />
+            <element signature="e#9908#11549#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> Stashed changes
   </component>
 </project>

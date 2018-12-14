@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Gilless PI" exclude="" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="visible Energy PI" exclude="" autoUploadExternalChanges="true">
     <serverData>
       <paths name="Gilless PI">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_634" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/pycharm_project_665" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
@@ -19,7 +19,7 @@
       <paths name="visible Energy PI">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_69" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/pi/project" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
