@@ -8,7 +8,6 @@ consumption = ledsMeter(addressI2C=0x72, isInConsumption=True, valuePeak=6000)
 production = ledsMeter(addressI2C=0x71, isInConsumption=False, valuePeak=6000)
 display = sevenSegmentDigit()
 servoMotor = servoMotor()
-servoMotor.changeAngle(0)
 
 class MonThread(threading.Thread):
     def __init__(self):

@@ -217,8 +217,13 @@ class servoMotor:
     oldAngle = 300  # to do a comparison of the old and new value
     tolerance = 0.2  # angle tolerance
 
+
     def __init__(self):
         self.maxDelta = 20
+        self.oldDuty = float(0 + (self.maxAngle - self.minAngle) / 2) / float(self.maxAngle)
+        self.oldDuty = self.oldDuty * float(self.maxDuty - self.minDuty) * 0.9
+        self.oldDuty = self.oldDuty + self.minDuty
+        self.adaptAngle(0)
         # Define the pin GPIO26 as a PWM output
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(18, GPIO.OUT)
@@ -248,17 +253,29 @@ class servoMotor:
             self.adaptAngle(newAngle)
 
     def adaptAngle(self, angle):
-        newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
 
-        for i in range(0,2):
-            newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
-            newDuty = newDuty+self.minDuty
-            # say to the servo to change this angle
-            self.servoPin.ChangeDutyCycle(newDuty)
-            # let the time to itself to change it
-            time.sleep(0.15)
+        newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
+        newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
+        newDuty = newDuty+self.minDuty
+
+        testDuty = newDuty
+
+        while(testDuty != self.oldDuty):
+            print("oui")
+            if(testDuty<(self.oldDuty+0.1)):
+                testDuty = (self.oldDuty-testDuty)/4
+            else:
+                if (testDuty > (self.oldDuty - 0.1)):
+                    testDuty = (testDuty - self.oldDuty) / 4
+
+       # # say to the servo to change this angle
+       # self.servoPin.ChangeDutyCycle(newDuty)
+       # # let the time to itself to change it
+       # time.sleep(0.5)
+
         # say to the servo to stop all moves
         self.servoPin.ChangeDutyCycle(0)
+        self.oldDuty = newDuty
         print("Angle changed")
 
 
