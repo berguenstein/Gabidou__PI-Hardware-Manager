@@ -52,6 +52,7 @@ class MqttClient:
         self._PM1 = 0
         self._PM2 = 0
         self._PM3 = 0
+        self._maxValue = 8000
         self.log.info('Starting MQTT client...')
 
         if not self._useReconnectClient:
@@ -290,3 +291,6 @@ class MqttClient:
         :return: the power of solar panel
         """
         return self._PM3
+
+    def getMaxValue(self):
+        return self._maxValue

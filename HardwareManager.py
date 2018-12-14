@@ -154,8 +154,8 @@ class ledsMeter:
             if(value > i):
                 self.turnNbLed(self.nbLeds - self.arrayPower.index(i) - 1)
                 break
-            if(self.arrayPower.index(i) == 25):
-                self.turnNbLed(self.nbLeds)
+            if(self.arrayPower.index(i) == 24):
+                self.turnNbLed(-1)
                 break
 
 
@@ -214,7 +214,7 @@ class servoMotor:
     minAngle = 0  # of the servomotor
     maxDuty = 11.8  # of the servomotor
     minDuty = 2.4  # of the servomotor
-    oldAngle = 300  # to do a comparison of the old and new value
+    oldAngle = 10  # to do a comparison of the old and new value
     tolerance = 0.2  # angle tolerance
 
 
@@ -223,12 +223,12 @@ class servoMotor:
         self.oldDuty = float(0 + (self.maxAngle - self.minAngle) / 2) / float(self.maxAngle)
         self.oldDuty = self.oldDuty * float(self.maxDuty - self.minDuty) * 0.9
         self.oldDuty = self.oldDuty + self.minDuty
-        self.adaptAngle(0)
         # Define the pin GPIO26 as a PWM output
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(18, GPIO.OUT)
         self.servoPin = GPIO.PWM(18, 50)
         self.servoPin.start(float(self.maxDuty+self.minDuty)/float(2))
+        self.adaptAngle(0)
 
     def changeMaxDelta(self, newMaxDelta):
         # test if in acceptable delta angle
@@ -249,33 +249,27 @@ class servoMotor:
         minTolered = self.oldAngle-self.tolerance
 
         if (newAngle > maxTolered or newAngle < minTolered):
-            self.oldAngle = newAngle
             self.adaptAngle(newAngle)
+            self.oldAngle = newAngle
 
     def adaptAngle(self, angle):
 
-        newDuty = float(angle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
-        newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
-        newDuty = newDuty+self.minDuty
+        tempAngle = self.oldAngle
 
-        testDuty = newDuty
+        while(tempAngle<(angle-0.05) or tempAngle>(angle+0.05)):
+            tempAngle = tempAngle + float((angle-tempAngle)/3)
+            print(tempAngle)
 
-        while(testDuty != self.oldDuty):
-            print("oui")
-            if(testDuty<(self.oldDuty+0.1)):
-                testDuty = (self.oldDuty-testDuty)/4
-            else:
-                if (testDuty > (self.oldDuty - 0.1)):
-                    testDuty = (testDuty - self.oldDuty) / 4
-
-       # # say to the servo to change this angle
-       # self.servoPin.ChangeDutyCycle(newDuty)
-       # # let the time to itself to change it
-       # time.sleep(0.5)
+            newDuty = float(tempAngle+(self.maxAngle-self.minAngle)/2)/float(self.maxAngle)
+            newDuty = newDuty*float(self.maxDuty-self.minDuty)*0.9
+            newDuty = newDuty+self.minDuty
+            # say to the servo to change this angle
+            self.servoPin.ChangeDutyCycle(newDuty)
+            # let the time to itself to change it
+            time.sleep(0.15)
 
         # say to the servo to stop all moves
         self.servoPin.ChangeDutyCycle(0)
-        self.oldDuty = newDuty
         print("Angle changed")
 
 
@@ -334,14 +328,6 @@ class sevenSegmentDigit:
     def displayClear(self):
         self.segment.clear()
         self.segment.write_display()
-
-    def startThreadTime(self):
-        if(self.isThread):
-            #self.thr.start()
-            self.isThread = True
-        else:
-            #self.thr.stop()
-            self.isThread = False
 
     def displayTime(self):
 

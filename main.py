@@ -1,45 +1,43 @@
 from MqttClient import MqttClient
-import EnergyLogic
+from EnergyLogic import EnergyLogic
 import signal
 import time
 import threading
+from threading import Timer
 from HardwareManager import ledsMeter, servoMotor, sevenSegmentDigit
 
 houseClient = MqttClient("HouseClientConf.config")
-logic = EnergyLogic(houseClient)
-consumption = ledsMeter(addressI2C=0x72, isInConsumption=True, valuePeak=6000)
-production = ledsMeter(addressI2C=0x71, isInConsumption=False, valuePeak=6000)
+consumption = ledsMeter(addressI2C=0x72, isInConsumption=True, valuePeak=8000)
+production = ledsMeter(addressI2C=0x71, isInConsumption=False, valuePeak=8000)
 display = sevenSegmentDigit()
 servoMotor = servoMotor()
+logic = EnergyLogic(houseClient, consumption, production, display, servoMotor)
 
-class MonThread(threading.Thread):
+
+class MonTestThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
-        signal.signal(signal.SIGALRM, logic.logic())
-        signal.alarm(10)
 
     def run(self):
-        while(True):
+        while True:
             time.sleep(10)
-            consumption.calcNbLedOn(houseClient.getPM2())
-            production.calcNbLedOn(houseClient.getPM3())
-            display.displayString(str(int(houseClient.getPM3())))
-            #servoMotor.changeAngle(newAngle)
+            logic.logic()
+            #logic.otherLogic()
 
-
-
-class MonAutreThread(threading.Thread):
+class MonThreadModeChangement(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
     def run(self):
-        while(True):
-            servoMotor.changeAngle(input("Enter the new angle you want to change\r\n"))
+        while True:
+            logic.changeMode(raw_input("type the mode you want to go to (solar, water, exportation, importation): "))
+
+t = MonTestThread()
+t.start()
+
+u = MonThreadModeChangement()
+u.start()
 
 
 
-m = MonThread()
-m.start()
 
-n = MonAutreThread()
-n.start()
